@@ -1,0 +1,8 @@
+print("文件的导入与导出请把所提供文本文件shiyan4.txt(该文件中现有3列值，分别是name、weight和height)导入到变量data中，要求文件中第一行作为列名，字符串不要转化为因子；计算weight和height平方的比值并存入bmi变量；将bmi作为最后一列加入到变量data中；最后将data变量中的数据输出到文件shiyan4.csv中，要求不输出行名。")
+data = read.table("./lab4/shiyan4.txt", header=TRUE, stringsAsFactors=FALSE)
+fix(data)
+bmi  = ((data$weight)^2)/((data$height)^2)
+fix(bmi)
+data = cbind(data,bmi)
+fix(data)
+write.table(data,file="./lab4/shiyan4.csv",col.names=FALSE,row.names=FALSE)
